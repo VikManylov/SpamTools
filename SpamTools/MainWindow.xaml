@@ -136,7 +136,11 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Редактор писем"></TabItem>
+            <TabItem Header="Редактор писем">
+                <Grid>
+                    <RichTextBox/>
+                </Grid>
+            </TabItem>
             <TabItem Header="Статистика"></TabItem>
         </TabControl>
     </DockPanel>
