@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:SpamTools"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -20,8 +21,63 @@
                 <MenuItem Header="О программе" IsEnabled="False"></MenuItem>
             </MenuItem>
         </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Text="Статус приложения"/>
+            <ProgressBar Width="150" Height="10" Value="75"/>
+        </StatusBar>
         <TabControl>
-            <TabItem Header="Списки рассылки"></TabItem>
+            <TabItem Header="Списки рассылки">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ToolBarTray Grid.Row="0">
+                        <ToolBar>
+                            <TextBlock Text="Отправители"/>
+                            <ComboBox Width="150" Margin="3,0,0,0"/>
+                            <Button>
+                                <fa:ImageAwesome Icon="Plus" Height="13" Foreground="Green"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Edit" Height="13" Foreground="Orange"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Remove" Height="13" Foreground="Red"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1" BandIndex="0">
+                            <TextBlock Text="Сервера"/>
+                            <ComboBox Width="150" Margin="3,0,0,0"/>
+                            <Button>
+                                <fa:ImageAwesome Icon="Plus" Height="13" Foreground="Green"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Edit" Height="13" Foreground="Orange"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Remove" Height="13" Foreground="Red"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar>
+                            <TextBlock Text="Перейти в планировщик"/>
+                            <Button>Перейти</Button>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <TextBlock Text="Список адресатов"/>
+                            <Button>
+                                <fa:ImageAwesome Icon="Plus" Height="13" Foreground="Green"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Edit" Height="13" Foreground="Orange"/>
+                            </Button>
+                            <Button>
+                                <fa:ImageAwesome Icon="Remove" Height="13" Foreground="Red"/>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                </Grid>
+            </TabItem>
             <TabItem Header="Планировщик"></TabItem>
             <TabItem Header="Редактор писем"></TabItem>
             <TabItem Header="Статистика"></TabItem>
