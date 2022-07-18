@@ -78,7 +78,64 @@
                     </ToolBarTray>
                 </Grid>
             </TabItem>
-            <TabItem Header="Планировщик"></TabItem>
+            <TabItem Header="Планировщик">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <GroupBox Header="Дата/время">
+                            <StackPanel>
+                                <Calendar/>
+                                <TextBox/>
+                            </StackPanel>
+                        </GroupBox>
+                        <Button>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="ClockOutline" Height="13">
+                                    <fa:ImageAwesome.Foreground>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-30" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FF010E87" Offset="0"/>
+                                            <GradientStop Color="#FF727FFD" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </fa:ImageAwesome.Foreground>
+                                </fa:ImageAwesome>
+                                <TextBlock Text="Запланировать" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Send" Height="13">
+                                    <fa:ImageAwesome.Foreground>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-30" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FF010E87" Offset="0"/>
+                                            <GradientStop Color="#FF727FFD" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </fa:ImageAwesome.Foreground>
+                                </fa:ImageAwesome>
+                                <TextBlock Text="Отправить сразу" Margin="3,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
             <TabItem Header="Редактор писем"></TabItem>
             <TabItem Header="Статистика"></TabItem>
         </TabControl>
