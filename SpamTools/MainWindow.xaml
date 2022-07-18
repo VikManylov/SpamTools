@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать"></MenuItem>
+                <MenuItem Header="Открыть"></MenuItem>
+                <MenuItem Header="Закрыть"></MenuItem>
+                <MenuItem Header="Сохранить"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Выход" Click="OnExitClick"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе" IsEnabled="False"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TabControl>
+            <TabItem Header="Списки рассылки"></TabItem>
+            <TabItem Header="Планировщик"></TabItem>
+            <TabItem Header="Редактор писем"></TabItem>
+            <TabItem Header="Статистика"></TabItem>
+        </TabControl>
     </DockPanel>
 </Window>
