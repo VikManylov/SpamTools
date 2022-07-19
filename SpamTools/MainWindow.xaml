@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:data="clr-namespace:SpamTools.lib.Data;assembly=SpamTools.lib"
         xmlns:local="clr-namespace:SpamTools"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
@@ -34,8 +35,19 @@
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
-                            <TextBlock Text="Отправители"/>
-                            <ComboBox Width="150" Margin="3,0,0,0"/>
+                            <TextBlock Text="Отправители:" />
+                            <ComboBox Width="150" Margin="3,0,0,0" SelectedIndex="0"
+                                      ItemsSource="{x:Static data:Senders.List}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="data:Sender">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock> : </TextBlock>
+                                            <TextBlock Text="{Binding Address}" Opacity="0.6"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
                             <Button>
                                 <fa:ImageAwesome Icon="Plus" Height="13" Foreground="Green"/>
                             </Button>
@@ -47,8 +59,10 @@
                             </Button>
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="0">
-                            <TextBlock Text="Сервера"/>
-                            <ComboBox Width="150" Margin="3,0,0,0"/>
+                            <TextBlock Text="Сервера:" MinWidth="74" TextAlignment="Right"/>
+                            <ComboBox Width="150" Margin="3,0,0,0" SelectedIndex="0" 
+                                      ItemsSource="{x:Static data:MailServers.Servers}"
+                                      DisplayMemberPath="Address"/>
                             <Button>
                                 <fa:ImageAwesome Icon="Plus" Height="13" Foreground="Green"/>
                             </Button>
