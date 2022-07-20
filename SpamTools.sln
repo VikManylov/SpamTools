@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamTools", "SpamTools\SpamTools.csproj", "{4A6EB27D-2962-4514-BE45-E2F66D2A5FE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{743046D4-B23A-46B4-B781-DF517A970061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoligonConsole", "PoligonConsole\PoligonConsole.csproj", "{A743D2EF-6E1C-45E7-B080-B19869481B8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamTools.lib", "SpamTools.lib\SpamTools.lib.csproj", "{CDA02503-DC2B-4B5F-B910-3D266F740279}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A6EB27D-2962-4514-BE45-E2F66D2A5FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6EB27D-2962-4514-BE45-E2F66D2A5FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6EB27D-2962-4514-BE45-E2F66D2A5FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6EB27D-2962-4514-BE45-E2F66D2A5FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A743D2EF-6E1C-45E7-B080-B19869481B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A743D2EF-6E1C-45E7-B080-B19869481B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A743D2EF-6E1C-45E7-B080-B19869481B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A743D2EF-6E1C-45E7-B080-B19869481B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA02503-DC2B-4B5F-B910-3D266F740279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA02503-DC2B-4B5F-B910-3D266F740279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA02503-DC2B-4B5F-B910-3D266F740279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA02503-DC2B-4B5F-B910-3D266F740279}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A743D2EF-6E1C-45E7-B080-B19869481B8F} = {743046D4-B23A-46B4-B781-DF517A970061}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC5D6A14-CA8D-42B4-8200-1206340BB0C2}
+	EndGlobalSection
+EndGlobal
