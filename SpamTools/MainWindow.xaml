@@ -37,7 +37,7 @@
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
                             <TextBlock Text="Отправители:" />
-                            <ComboBox Width="150" Margin="3,0,0,0" SelectedIndex="0"
+                            <ComboBox Name="Users" Width="150" Margin="3,0,0,0" SelectedIndex="0"
                                       ItemsSource="{x:Static data:Senders.List}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="data:Sender">
@@ -61,7 +61,7 @@
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="0">
                             <TextBlock Text="Сервера:" MinWidth="74" TextAlignment="Right"/>
-                            <ComboBox Width="150" Margin="3,0,0,0" SelectedIndex="0" 
+                            <ComboBox Name="Servers" Width="150" Margin="3,0,0,0" SelectedIndex="0" 
                                       ItemsSource="{x:Static data:MailServers.Servers}"
                                       DisplayMemberPath="Address"/>
                             <Button>

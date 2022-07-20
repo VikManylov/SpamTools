@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SpamTools.lib;
+using SpamTools.lib.Data;
+using SpamTools.lib.Servise;
 
 namespace SpamTools
 {
@@ -32,15 +34,34 @@ namespace SpamTools
             Close();
         }
 
-        private void OnSendButtonClick(object sender, RoutedEventArgs e)
+        private void OnSendButtonClick(object Sender, RoutedEventArgs e)
         {
-            string server = null;
-            int port = 25;
-            bool ssl = true;
-            string user = null;
-            SecureString password = null;
+            var server = Servers.SelectedItem as MailServer;
+            if(server == null)
+            {
+                MessageBox.Show("Сервер не выбран", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-            var send_mail_server = new MailSenderService(server, port, ssl, user, password);
+            var sender = Users.SelectedItem as Sender;
+            if (sender == null)
+            {
+                MessageBox.Show("Отправител не выбран", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var password = new SecureString();
+            foreach(var password_char in PasswordService.Decode(sender.Password))
+            {
+                password.AppendChar(password_char);
+            }
+
+            var send_mail_server = new MailSenderService(server.Address, server.Port, server.UseSSL,
+                sender.Address, password);
+
+            send_mail_server.Send("Subject", "EmailBody", "email@server.com");
         }
+
+
     }
 }

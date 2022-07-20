@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpamTools.lib.Servise
 {
-    static class PasswordService
+    public static class PasswordService
     {
         public static string Encode(string str, int key = 1) 
         {
