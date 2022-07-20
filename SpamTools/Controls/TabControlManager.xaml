@@ -10,14 +10,14 @@
     <UniformGrid Rows="1">
         <Button Click="OnBackButtonClick">
             <StackPanel Orientation="Horizontal">
-                <fa:ImageAwesome Icon="ArrowLeft" Height="20" Margin="5,0" Foreground="LimeGreen"/>
-                <TextBlock Text="Назад"/>
+                <fa:ImageAwesome Icon="ArrowLeft" Height="15" Margin="5,0" Foreground="LimeGreen"/>
+                <TextBlock Text="Назад" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Click="OnForwardButtonClick">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Вперед"/>
-                <fa:ImageAwesome Icon="ArrowRight" Height="20" Margin="5,0" Foreground="LimeGreen"/>
+                <TextBlock Text="Вперед" VerticalAlignment="Center"/>
+                <fa:ImageAwesome Icon="ArrowRight" Height="15" Margin="5,0" Foreground="LimeGreen"/>
             </StackPanel>
         </Button>
     </UniformGrid>

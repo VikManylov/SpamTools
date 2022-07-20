@@ -62,6 +62,16 @@ namespace SpamTools
             send_mail_server.Send("Subject", "EmailBody", "email@server.com");
         }
 
+        private void OnTabManegerBack(object sender, EventArgs e)
+        {
+            if(MainTabControl.SelectedIndex > 0)
+                MainTabControl.SelectedIndex--;
+        }
 
+        private void OnTabManagerForward(object sender, EventArgs e)
+        {
+            if(MainTabControl.SelectedIndex < MainTabControl.Items.Count -1)
+                MainTabControl.SelectedIndex++;
+        }
     }
 }
