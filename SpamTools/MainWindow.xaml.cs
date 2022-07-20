@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SpamTools.lib;
 
 namespace SpamTools
 {
@@ -28,6 +30,17 @@ namespace SpamTools
         private void OnExitClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void OnSendButtonClick(object sender, RoutedEventArgs e)
+        {
+            string server = null;
+            int port = 25;
+            bool ssl = true;
+            string user = null;
+            SecureString password = null;
+
+            var send_mail_server = new MailSenderService(server, port, ssl, user, password);
         }
     }
 }
