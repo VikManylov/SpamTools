@@ -30,6 +30,14 @@ namespace SpamTools.ViewModel
             set => Set(ref _Status, value);
         }
 
+        private EmailRecipient _CurrentRecipient;
+
+        public EmailRecipient CurrentRecipient
+        {
+            get => _CurrentRecipient;
+            set => Set(ref _CurrentRecipient, value);
+        }
+
         //private readonly ObservableCollection<EmailRecipient> _Recipients = new ObservableCollection<EmailRecipient>();
 
         public ObservableCollection<EmailRecipient> Recipients { get; } = new ObservableCollection<EmailRecipient>();
@@ -49,10 +57,30 @@ namespace SpamTools.ViewModel
             }
         }
 
+        public ICommand CreateNewRecipientCommand { get; }
+
+        private void OnCreateNewRecipientCommandExecute()
+        {
+
+        }
+
+        public ICommand UpdateRecipientCommand { get; }
+
+        private bool UpdateRecipientCommandCanExecute(EmailRecipient Recipient)
+        {
+            return Recipient != null || _CurrentRecipient != null;
+        }
+
+        private void OnUpdateRecipientCommandExecute(EmailRecipient Recipient)
+        {
+
+        }
+
         public MainWindowViewModel(IDataService DataService)
         {
             UpdateRecipientsCommand = new RelayCommand(OnUpdateRecipientsCommandExecuted, CanUpdateRecipientsCommandExecute);
-
+            CreateNewRecipientCommand = new RelayCommand(OnCreateNewRecipientCommandExecute);
+            UpdateRecipientCommand = new RelayCommand<EmailRecipient>(OnUpdateRecipientCommandExecute, UpdateRecipientCommandCanExecute);
             _DataService = DataService;
         }
     }

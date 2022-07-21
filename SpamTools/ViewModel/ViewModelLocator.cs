@@ -25,8 +25,8 @@ namespace SpamTools.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            SimpleIoc.Default.Register(() => new SpamDatabaseDataContext());
+            if (!SimpleIoc.Default.IsRegistered<SpamDatabaseDataContext>())
+                SimpleIoc.Default.Register(() => new SpamDatabaseDataContext());
             SimpleIoc.Default.Register<IDataService, DataServiceDB>();
 
             SimpleIoc.Default.Register<MainViewModel>();

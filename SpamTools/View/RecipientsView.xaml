@@ -22,7 +22,9 @@
         <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center"
                 Margin="0,10" Padding="60,10" Content="Обновить"
                 Command="{Binding UpdateRecipientsCommand}"/>
-        <DataGrid Margin="5" ItemsSource="{Binding Recipients}"
+        <DataGrid Margin="5" 
+                  ItemsSource="{Binding Recipients}"
+                  SelectedItem="{Binding CurrentRecipient}"
                   IsReadOnly="True" HorizontalGridLinesBrush="{x:Null}"
                   AlternatingRowBackground="LightBlue"
                   AutoGenerateColumns="False">
