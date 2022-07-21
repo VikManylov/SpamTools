@@ -9,7 +9,9 @@
         xmlns:contrls="clr-namespace:SpamTools.Controls"
         xmlns:local="clr-namespace:SpamTools"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="{Binding Title}" Height="600" Width="800"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
+        >
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
             <contrls:TabControlManager DockPanel.Dock="Right" Height="18"
@@ -30,8 +32,7 @@
 
         </DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
-            <TextBlock Text="Статус приложения"/>
-            <ProgressBar Width="150" Height="10" Value="75"/>
+            <TextBlock Text="{Binding Status}"/>
         </StatusBar>
         <TabControl Name="MainTabControl">
             <TabItem Header="Списки рассылки">
@@ -49,7 +50,7 @@
                                     <DataTemplate DataType="data:Sender">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Name}"/>
-                                            <TextBlock> : </TextBlock>
+                                            <TextBlock> :</TextBlock>
                                             <TextBlock Text="{Binding Address}" Opacity="0.6"/>
                                         </StackPanel>
                                     </DataTemplate>
@@ -98,17 +99,15 @@
                         </ToolBar>
                     </ToolBarTray>
                     <Grid Grid.Row="1">
-                        <Grid.DataContext>
-                            <db:SpamDatabaseDataContext/>
-                        </Grid.DataContext>
-                        <DataGrid ItemsSource="{Binding EmailRecipient}" AutoGenerateColumns="False"
+                        
+                        <!--<DataGrid ItemsSource="{Binding Recipients}" AutoGenerateColumns="False"
                                   IsReadOnly="True" HorizontalGridLinesBrush="{x:Null}"
                                   AlternationCount="2" AlternatingRowBackground="LightGray">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
                                 <DataGridTextColumn Header="Адрес" Binding="{Binding EmailAddress}"/>
                             </DataGrid.Columns>
-                        </DataGrid>
+                        </DataGrid>-->
                     </Grid>
                 </Grid>
             </TabItem>
@@ -175,7 +174,14 @@
                     <RichTextBox/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Статистика"></TabItem>
+            <!--<TabItem Header="Статистика">
+                <Grid>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="28,29,0,0" TextWrapping="Wrap"
+                             Text="{Binding TestTextValue, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="323"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,120,0,0" TextWrapping="Wrap" 
+                               Text="{Binding TestTextValue}" VerticalAlignment="Top" Width="210"/>
+                </Grid>
+            </TabItem>-->
         </TabControl>
     </DockPanel>
 </Window>
