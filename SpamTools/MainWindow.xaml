@@ -7,6 +7,7 @@
         xmlns:data="clr-namespace:SpamTools.lib.Data;assembly=SpamTools.lib"
         xmlns:db="clr-namespace:SpamTools.lib.Database;assembly=SpamTools.lib"
         xmlns:contrls="clr-namespace:SpamTools.Controls"
+        xmlns:view="clr-namespace:SpamTools.View"
         xmlns:local="clr-namespace:SpamTools"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="600" Width="800"
@@ -99,15 +100,7 @@
                         </ToolBar>
                     </ToolBarTray>
                     <Grid Grid.Row="1">
-                        
-                        <!--<DataGrid ItemsSource="{Binding Recipients}" AutoGenerateColumns="False"
-                                  IsReadOnly="True" HorizontalGridLinesBrush="{x:Null}"
-                                  AlternationCount="2" AlternatingRowBackground="LightGray">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Адрес" Binding="{Binding EmailAddress}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>-->
+                        <view:RecipientsView/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -174,14 +167,9 @@
                     <RichTextBox/>
                 </Grid>
             </TabItem>
-            <!--<TabItem Header="Статистика">
-                <Grid>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="28,29,0,0" TextWrapping="Wrap"
-                             Text="{Binding TestTextValue, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="323"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="28,120,0,0" TextWrapping="Wrap" 
-                               Text="{Binding TestTextValue}" VerticalAlignment="Top" Width="210"/>
-                </Grid>
-            </TabItem>-->
+            <TabItem Header="Статистика">
+                
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>

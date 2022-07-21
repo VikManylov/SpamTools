@@ -1,11 +1,14 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using SpamTools.lib;
 using SpamTools.lib.Database;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SpamTools.ViewModel
 {
@@ -27,10 +30,29 @@ namespace SpamTools.ViewModel
             set => Set(ref _Status, value);
         }
 
-        public IEnumerable<EmailRecipient> Recipients => _DataService.GetEmailRecipients();
+        //private readonly ObservableCollection<EmailRecipient> _Recipients = new ObservableCollection<EmailRecipient>();
+
+        public ObservableCollection<EmailRecipient> Recipients { get; } = new ObservableCollection<EmailRecipient>();
+
+        public ICommand UpdateRecipientsCommand { get; }
+
+        private bool CanUpdateRecipientsCommandExecute() => true;
+
+        private void OnUpdateRecipientsCommandExecuted()
+        {
+            Recipients.Clear();
+            var db_recipients = _DataService.GetEmailRecipients();
+
+            foreach(var recipient in db_recipients)
+            {
+                Recipients.Add(recipient);
+            }
+        }
 
         public MainWindowViewModel(IDataService DataService)
         {
+            UpdateRecipientsCommand = new RelayCommand(OnUpdateRecipientsCommandExecuted, CanUpdateRecipientsCommandExecute);
+
             _DataService = DataService;
         }
     }
